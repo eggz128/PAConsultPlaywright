@@ -13,8 +13,9 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  timeout: 40 * 1000, //Tests have 40 seconds to complete (normally 30)
+  //expect: {timeout: 10000}, //Give expects 10s to complete (5s by default)
   /* Run tests in files in parallel */
-  timeout: 40 * 1000,
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -33,6 +34,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     launchOptions: {slowMo: 500},
     headless: false,
+    //actionTimeout: 10000, //Normally limited only by test timeout, actions must now complete in 10s
   },
 
   /* Configure projects for major browsers */

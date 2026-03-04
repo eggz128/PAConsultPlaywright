@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
-
+import { TestOptions } from './tests/my-test'
+export const STORAGE_STATE = 'user.json';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -11,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+export default defineConfig<TestOptions>({
   testDir: './tests',
   timeout: 40 * 1000, //Tests have 40 seconds to complete (normally 30)
   //expect: {timeout: 10000}, //Give expects 10s to complete (5s by default)
@@ -24,29 +25,57 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['html', { title: 'Custom test run' }],
+    ['json', { outputFile: 'json-results/testresults.json' }]
+  ],
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: 'http://www.edgewordstraining.co.uk/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    launchOptions: {slowMo: 500},
-    headless: false,
+    trace: 'on',
+    video: 'on',
+    launchOptions: { slowMo: 500 },
+    screenshot: 'on'
+    //headless: false,
     //actionTimeout: 10000, //Normally limited only by test timeout, actions must now complete in 10s
   },
 
   /* Configure projects for major browsers */
   projects: [
+
+    {
+      name: 'setup',
+      testMatch: /globalSetup\.ts/,
+      teardown: 'teardown',
+      timeout: 2 * 60 * 1000,
+    },
+    {
+      name: 'teardown',
+      testMatch: /globalTeardown\.ts/,
+      use: {
+        storageState: STORAGE_STATE
+      }
+    },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], headless: false },
+      use: { ...devices['Desktop Chrome'], /*headless: false,*/
+        person: 'Bob',
+        storageState: STORAGE_STATE,
+       },
+       dependencies: ['setup']
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { ...devices['Desktop Firefox'],
+        person: 'Alice',
+        storageState: STORAGE_STATE,
+       },
+      dependencies: ['setup']
     },
 
     {
@@ -55,24 +84,24 @@ export default defineConfig({
     },
 
     /* Test against mobile viewports. */
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 7'] },
-    },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-    },
+    // {
+    //   name: 'Mobile Chrome',
+    //   use: { ...devices['Pixel 7'] },
+    // },
+    // {
+    //   name: 'Mobile Safari',
+    //   use: { ...devices['iPhone 12'] },
+    // },
 
     /* Test against branded browsers. */
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    },
-    {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    },
+    // {
+    //   name: 'Microsoft Edge',
+    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    // },
+    // {
+    //   name: 'Google Chrome',
+    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+    // },
   ],
 
   /* Run your local dev server before starting the tests */

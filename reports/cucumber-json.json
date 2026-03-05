@@ -5,6 +5,56 @@
       {
         "description": "",
         "id": "login-functionality;successful-login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Successful login with Valid Credentials",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4294839100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "the user enters valid credentials",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 991951399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "the user should be redirected to the Add A Record page",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 317020599
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;successful-login-with-valid-credentials",
         "keyword": "Scenario Outline",
         "line": 15,
         "name": "Successful login with Valid Credentials",
@@ -19,7 +69,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 553090200
+              "duration": 4640975999
             }
           },
           {
@@ -32,7 +82,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 167966399
+              "duration": 974514099
             }
           },
           {
@@ -41,11 +91,11 @@
             "line": 11,
             "name": "the user should be redirected to the Add A Record page",
             "match": {
-              "location": "features\\step_definitions\\loginsteps.ts:22"
+              "location": "features\\step_definitions\\loginsteps.ts:40"
             },
             "result": {
               "status": "passed",
-              "duration": 43248900
+              "duration": 480695299
             }
           }
         ],
@@ -69,7 +119,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 558675999
+              "duration": 3904939000
             }
           },
           {
@@ -82,7 +132,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 180144099
+              "duration": 953852100
             }
           },
           {
@@ -91,11 +141,11 @@
             "line": 11,
             "name": "the user should be redirected to the Add A Record page",
             "match": {
-              "location": "features\\step_definitions\\loginsteps.ts:22"
+              "location": "features\\step_definitions\\loginsteps.ts:40"
             },
             "result": {
               "status": "passed",
-              "duration": 53882900
+              "duration": 304855599
             }
           }
         ],
@@ -119,7 +169,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 542221900
+              "duration": 3796969399
             }
           },
           {
@@ -132,7 +182,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 176847000
+              "duration": 1036368900
             }
           },
           {
@@ -141,12 +191,69 @@
             "line": 11,
             "name": "the user should be redirected to the Add A Record page",
             "match": {
-              "location": "features\\step_definitions\\loginsteps.ts:22"
+              "location": "features\\step_definitions\\loginsteps.ts:40"
             },
             "result": {
               "status": "failed",
-              "duration": 5002543699,
+              "duration": 5014018599,
               "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (E:\\JSTS\\PAConsultPlaywright\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;login-page-should-have-both-a-login-and-register-menu-option",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Login page should have both a login and register menu option",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 21,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3283815099
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Text"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Login"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Register"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the page should have these links visible:",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82351800
             }
           }
         ],

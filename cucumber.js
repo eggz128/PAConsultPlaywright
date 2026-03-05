@@ -4,7 +4,7 @@ const commonConfig = {
         forceExit: true,
         dryRun: false,
         paths: ['features/**/*.feature'],
-        import: ['features/**/*.ts','tests/POMClasses/**/*.ts'],
+        import: ['features/**/*.ts'],
         loader: ['ts-node/esm'],
 }
 

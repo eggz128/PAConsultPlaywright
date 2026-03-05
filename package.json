@@ -9,9 +9,11 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@cucumber/cucumber": "^12.7.0",
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.3.3",
     "allure-commandline": "^2.37.0",
-    "allure-playwright": "^3.5.0"
+    "allure-playwright": "^3.5.0",
+    "ts-node": "^10.9.2"
   }
 }

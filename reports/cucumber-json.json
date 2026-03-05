@@ -5,8 +5,8 @@
       {
         "description": "",
         "id": "login-functionality;successful-login-with-valid-credentials",
-        "keyword": "Scenario",
-        "line": 8,
+        "keyword": "Scenario Outline",
+        "line": 15,
         "name": "Successful login with Valid Credentials",
         "steps": [
           {
@@ -19,20 +19,20 @@
             },
             "result": {
               "status": "passed",
-              "duration": 731793699
+              "duration": 553090200
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
             "line": 10,
-            "name": "the user logs in with the credentials \"webdriver\" and \"edgewords123\"",
+            "name": "the user logs in with the credentials \"edgewords\" and \"edgewords123\"",
             "match": {
-              "location": "features\\step_definitions\\loginsteps.ts:24"
+              "location": "features\\step_definitions\\moresteps.ts:2"
             },
             "result": {
               "status": "passed",
-              "duration": 305197799
+              "duration": 167966399
             }
           },
           {
@@ -41,11 +41,112 @@
             "line": 11,
             "name": "the user should be redirected to the Add A Record page",
             "match": {
-              "location": "features\\step_definitions\\loginsteps.ts:21"
+              "location": "features\\step_definitions\\loginsteps.ts:22"
             },
             "result": {
               "status": "passed",
-              "duration": 34386599
+              "duration": 43248900
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;successful-login-with-valid-credentials",
+        "keyword": "Scenario Outline",
+        "line": 16,
+        "name": "Successful login with Valid Credentials",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 558675999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "the user logs in with the credentials \"webdriver\" and \"edgewords123\"",
+            "match": {
+              "location": "features\\step_definitions\\moresteps.ts:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 180144099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the user should be redirected to the Add A Record page",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 53882900
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;successful-login-with-valid-credentials",
+        "keyword": "Scenario Outline",
+        "line": 17,
+        "name": "Successful login with Valid Credentials",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 542221900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "the user logs in with the credentials \"notvalid\" and \"notvalid\"",
+            "match": {
+              "location": "features\\step_definitions\\moresteps.ts:2"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 176847000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the user should be redirected to the Add A Record page",
+            "match": {
+              "location": "features\\step_definitions\\loginsteps.ts:22"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5002543699,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (E:\\JSTS\\PAConsultPlaywright\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)"
             }
           }
         ],

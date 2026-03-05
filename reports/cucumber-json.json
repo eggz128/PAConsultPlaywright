@@ -6,47 +6,46 @@
         "description": "",
         "id": "login-functionality;successful-login-with-valid-credentials",
         "keyword": "Scenario",
-        "line": 3,
+        "line": 8,
         "name": "Successful login with Valid Credentials",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 4,
+            "line": 9,
             "name": "the user is on the login page",
             "match": {
               "location": "features\\step_definitions\\loginsteps.ts:6"
             },
             "result": {
               "status": "passed",
-              "duration": 556321600
+              "duration": 731793699
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 5,
-            "name": "the user enters valid credentials",
+            "line": 10,
+            "name": "the user logs in with the credentials \"webdriver\" and \"edgewords123\"",
             "match": {
-              "location": "features\\step_definitions\\loginsteps.ts:13"
+              "location": "features\\step_definitions\\loginsteps.ts:24"
             },
             "result": {
               "status": "passed",
-              "duration": 241526100
+              "duration": 305197799
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 6,
+            "line": 11,
             "name": "the user should be redirected to the Add A Record page",
             "match": {
               "location": "features\\step_definitions\\loginsteps.ts:21"
             },
             "result": {
-              "status": "failed",
-              "duration": 5017047300,
-              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (E:\\JSTS\\PAConsultPlaywright\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:605:17)\n    at process.processTimers (node:internal/timers:541:7)"
+              "status": "passed",
+              "duration": 34386599
             }
           }
         ],

@@ -1,43 +1,25 @@
 import { Given, When, Then, DataTable } from '@cucumber/cucumber'
 import { chromium, firefox, Page, BrowserContext, Browser, expect } from '@playwright/test';
+import { ICustomWorld } from "../support/customWorld";
 
 let browser: Browser
 let context: BrowserContext
 let page: Page
 
-Given('the user is on the login page', async function () {
+Given('the user is on the login page', async function (this: ICustomWorld) {
     // Bring up the browser, context and page manually as cucumber won't do it for us like PW Test did.
-    let browser: Browser;
-    let context: BrowserContext;
-    let page: Page;
+    await this.initBrowser() // Call our custom world method to init the browser
+    this.context = await this.browser!.newContext();
+    this.page = await this.context.newPage();
 
-    //Switch browser based on this.browserconfig
-    switch (this.parameters.browserconfig) {
-        case 'chromium':
-            browser = await chromium.launch({ headless: false  });
-            break;
-        case 'firefox':
-            browser = await firefox.launch({ headless: false });
-            break;
-        default:
-            this.log('No browser config found - defaulting to chromium');
-            browser = await chromium.launch({ headless: false });
-            break;
-    }
-
-    context = await browser.newContext();
-    page = await context.newPage();
-
-    this.browser = browser;
-    this.context = context;
-    this.page = page;
+    let page = this.page
 
     await page.goto('https://www.edgewordstraining.co.uk/webdriver2/sdocs/auth.php');
 });
 
-When('the user enters valid credentials', async function () {
+When('the user enters valid credentials', async function (this: ICustomWorld) {
     // Write code here that turns the phrase above into concrete actions
-    let page = this.page;
+    let page = this.page!;
     await page.getByRole('row', { name: 'User Name?' }).locator('#username').click();
     await page.getByRole('row', { name: 'User Name?' }).locator('#username').fill('edgewords');
     await page.locator('#password').click();
@@ -45,8 +27,8 @@ When('the user enters valid credentials', async function () {
     await page.getByRole('link', { name: 'Submit' }).click();
 });
 
-Then('the user should be redirected to the Add A Record page', async function () {
-    let page = this.page;
+Then('the user should be redirected to the Add A Record page', async function (this: ICustomWorld) {
+    let page = this.page!;
     await expect(page.locator('h1')).toContainText('Add A Record To the Database');
 })
 
@@ -61,8 +43,8 @@ Then('the user should be redirected to the Add A Record page', async function ()
 //     return 'pending';
 // });
 
-Then('the page should have these links visible:', async function (dataTable: DataTable) {
-    let page = this.page;
+Then('the page should have these links visible:', async function (this: ICustomWorld, dataTable: DataTable) {
+    let page = this.page!;
     const expectedLinks = dataTable.hashes();
     //[ { text: 'Login' }, { text: 'Register' } ]
     for (const row of expectedLinks) {

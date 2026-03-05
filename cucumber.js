@@ -1,7 +1,7 @@
 export default {
         format: ["json:reports/cucumber-json.json", "html:reports/cucumber-html.html","pretty"],
         formatOptions: { "snippetInterface": "async-await"},
-        //forceExit: true,
+        forceExit: true,
         publish: false,
         dryRun: false,
         paths: ['features/**/*.feature'],

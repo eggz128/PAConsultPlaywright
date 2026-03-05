@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js",
+    "pwdebug": "set PWDEBUG=1 && npx cucumber-js --tags=\"@debug\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@cucumber/cucumber": "^12.7.0",
     "@playwright/test": "^1.58.2",

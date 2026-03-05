@@ -1,6 +1,6 @@
 @web @mobileweb
 Feature: Login Functionality
-
+@debug
   Scenario: Successful login with Valid Credentials
     Given the user is on the login page
     When the user enters valid credentials

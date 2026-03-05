@@ -2,14 +2,14 @@ import { BeforeAll, Before, After, AfterAll, AfterStep, Status, setDefaultTimeou
 import { Browser, chromium, firefox } from "playwright";
 import { ICustomWorld } from "./customWorld";
 
-//setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
+setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 //Note that the timeout wont be configurable via a world parameter here
 //But you could set it with an ENV var...
 
 let browser: Browser;
 
 BeforeAll({name: "Start browser based on browserconfig"},async function () {
-    
+
     // Runs once before all scenarios
 
     console.log("Starting test suite");
